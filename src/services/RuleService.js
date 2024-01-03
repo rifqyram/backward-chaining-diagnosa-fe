@@ -11,6 +11,11 @@ const RuleService = () => {
         return data;
     }
 
+    const getRuleSymptomsByDiseaseId = async (diseaseId) => {
+        const {data} = await axiosInstance.get(`/api/rules/symptoms/${diseaseId}`);
+        return data;
+    }
+
     const getAll = async (params) => {
         const {data} = await axiosInstance.get('/api/rules', {params});
         return data;
@@ -29,6 +34,7 @@ const RuleService = () => {
     return {
         create,
         getById,
+        getRuleSymptomsByDiseaseId,
         getAll,
         update,
         deleteById

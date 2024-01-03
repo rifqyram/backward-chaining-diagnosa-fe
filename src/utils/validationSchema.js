@@ -36,7 +36,12 @@ export const symptomsSchema = () => Yup.object({
         .required('Deskripsi wajib di isi')
 })
 
-export const diagnosisSchema = () => Yup.object({
+export const diagnoseSchema = (min) => Yup.object({
+    disease: Yup.object().required('Penyakit wajib dipilih'),
+    symptoms: Yup.array().min(min, 'Semua opsi harus dipilih'),
+})
+
+export const ruleSchema = () => Yup.object({
     disease: Yup.object().required('Penyakit wajib dipilih'),
     symptomsIdsAnd: Yup
         .array()

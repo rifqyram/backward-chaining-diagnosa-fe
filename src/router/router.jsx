@@ -15,6 +15,8 @@ import ProtectedRoute from "./ProtectedRoute.jsx";
 import User from "../pages/User/index.jsx";
 import MainLayout from "../layout/MainLayout.jsx";
 import Register from "../pages/Register/index.jsx";
+import Diagnose from "../pages/Diagnose/index.jsx";
+import DiagnoseList from "../pages/DiagnoseList/index.jsx";
 
 const setupRouter = () =>
     createBrowserRouter([
@@ -30,8 +32,16 @@ const setupRouter = () =>
                         {
                             index: true,
                             element: <Home />
-                        }
+                        },
                     ]
+                },
+                {
+                    path: 'diagnoses',
+                    element: <Diagnose />
+                },
+                {
+                    path: 'diagnoses/list',
+                    element: <DiagnoseList />
                 },
                 {
                     path: 'login',

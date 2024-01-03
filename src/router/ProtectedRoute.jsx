@@ -12,15 +12,17 @@ const ProtectedRoute = ({children}) => {
 
     useEffect(() => {
         const verifyAuth = async () => {
-            try {
-                const roles = ['Admin', 'Super Admin'];
-                const result = await authService.getUserInfo();
-                if (!roles.includes(result.data.role)) navigate('/');
-                dispatch(authAction(() => result.data));
-            } catch (e) {
-                if (e.response.status === 401 || e.response.status === 403) {
-                    authService.logout();
-                    navigate('/login');
+            if (sessionStorage.getItem('token')) {
+                try {
+                    const roles = ['Admin', 'Super Admin'];
+                    const result = await authService.getUserInfo();
+                    if (!roles.includes(result.data.role)) navigate('/');
+                    dispatch(authAction(() => result.data));
+                } catch (e) {
+                    if (e.response.status === 401 || e.response.status === 403) {
+                        authService.logout();
+                        navigate('/login');
+                    }
                 }
             }
         };

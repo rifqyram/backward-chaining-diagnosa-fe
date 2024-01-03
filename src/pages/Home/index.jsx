@@ -2,6 +2,7 @@ import MedicineImage from '../../assets/images/medicine-vector.svg';
 import SelectOne from '../../assets/images/select1.svg';
 import SelectTwo from '../../assets/images/select2.svg';
 import Result from '../../assets/images/result.svg';
+import {Link} from "react-router-dom";
 
 const Home = () => {
     return (
@@ -17,7 +18,9 @@ const Home = () => {
                             Temukan Jawaban untuk Kesehatan Anda dengan Teknologi Backward Chaining
                         </h2>
                     </div>
-                    <button className='btn btn-lg btn-primary mt-4'>Mulai Diagnosa</button>
+                    <Link to={'/diagnoses'}>
+                        <button className='btn btn-lg btn-primary mt-4'>Mulai Diagnosa</button>
+                    </Link>
                 </div>
                 <div className="col-lg-5 col-12-sm align-self-center">
                     <img className='img-fluid object-fit-cover' src={MedicineImage} alt="image"/>

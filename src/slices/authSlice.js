@@ -11,10 +11,8 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(authAction.fulfilled, (state, {payload}) => {
-            if (payload) {
-                state.username = payload.username;
-                state.role = payload.role
-            }
+            state.username = payload?.username;
+            state.role = payload?.role
         });
     }
 })

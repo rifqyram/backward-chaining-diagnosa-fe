@@ -1,9 +1,9 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {Tooltip} from "react-tooltip";
 import {ServiceContext} from "../../../context/ServiceContext.jsx";
 import {useFormik} from "formik";
-import {diagnosisSchema} from "../../../utils/validationSchema.js";
+import {ruleSchema} from "../../../utils/validationSchema.js";
 import KnowledgeBasedRuleModal from "./KnowledgeBasedRuleModal.jsx";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {ruleAction} from "../../../slices/ruleSlice.js";
@@ -76,7 +76,7 @@ const Rule = () => {
 
     const {id} = useParams();
     const navigate = useNavigate();
-    const schema = diagnosisSchema();
+    const schema = ruleSchema();
 
     const {
         values: {disease: disease, symptomsAnd, symptomsOr},

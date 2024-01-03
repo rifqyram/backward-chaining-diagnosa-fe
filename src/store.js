@@ -6,6 +6,7 @@ import symptomsSlice from "./slices/symptomsSlice.js";
 import ruleSlice from "./slices/ruleSlice.js";
 import authSlice from "./slices/authSlice.js";
 import userSlice from "./slices/userSlice.js";
+import diagnoseSlice from "./slices/diagnoseSlice.js";
 
 const setupStore = () => configureStore({
     reducer: {
@@ -15,6 +16,7 @@ const setupStore = () => configureStore({
         rules: ruleSlice.reducer,
         auth: authSlice.reducer,
         users: userSlice.reducer,
+        diagnoses: diagnoseSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(asyncActionMiddleware),
 })
